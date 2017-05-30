@@ -24,7 +24,6 @@ void CheckNumber(int number) {
 			arr[j_index] = temp2 % 10;
 			temp2 = temp2 / 10;
 			length = length + 1;//length of the number
-			cout << "For My Convient " << arr[j_index] <<endl;
 			j_index = j_index + 1;
 		}
 	
