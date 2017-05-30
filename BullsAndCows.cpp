@@ -1,3 +1,22 @@
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+A Bulls and Cows game, wherer your friend selects a positive integer 
+number and you need to guess it.
+
+Here,
+ Bulls = The right digit in the right position from you firend's number.
+ cows = The correct digit but not necessarily in right place. 
+
+
+Still in improvement
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
 #include<iostream>
 #include<stdlib.h>
 #define MAX 1000
