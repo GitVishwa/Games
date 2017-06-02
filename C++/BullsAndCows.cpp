@@ -10,7 +10,7 @@ Here,
  Bulls = The right digit in the right position from you firend's number.
  cows = The correct digit but not necessarily in right place. 
 
-
+@Author Vishwanath Gulabal
 Still in improvement
 
 
