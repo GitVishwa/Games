@@ -36,8 +36,9 @@ void BullsAndCows(int b,int c){
 
 //check whether the guessed number if correct or not
 void CheckNumber(int number) {
-	int guessed_number = 0,temp1 = 0,temp2 = number,length = 0;
+	int guessed_number = 0,temp1 = 0,temp2 = number,length = 0, count =0;
 	int j_index = 0;
+	char ch;
 	//To count cows , storing digits in an array
 		while(temp2 !=0 ){
 			arr[j_index] = temp2 % 10;
@@ -47,12 +48,16 @@ void CheckNumber(int number) {
 		}
 	
 	while(1) {
+		
+		count = count + 1;//if user wants to give up after trying six or seven times.
 		cout << "Now guess the number " << endl;
 		cin >> guessed_number;
 		if(number == guessed_number) {
 			cout << "You guessed it right "<< endl;
 			BullsAndCows(4,0);
 			cout << "You won " << endl;
+			cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
+			cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 			break;		
 		} 
 		else {
@@ -79,14 +84,37 @@ void CheckNumber(int number) {
 		BullsAndCows(bulls,cows);	
 		bulls = 0;
 		cows = 0;
-	}
+		l1:if(count%6 == 0 ) {
+			cout << "Tiered of guessing, want to QUIT (y or n)?" << endl;
+			cin >> ch;
+			if( ch == 'y' || ch == 'Y'){
+					cout << "The number is " << num << endl;
+					cout << "Well played " << endl;
+					break; 
+			}
+			else if(ch == 'n' || ch == 'N')
+	      				cout << "Then, continue " << endl;
+	 		else{
+					cout << "Enter 'y' or 'n'" << endl;
+					goto l1;			
+				}
+			}
+		}
 }
 
 int main(void) {
-
-	cout << "Enters the number from your friend " << endl;
-	cin >> num;
 	
+	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
+	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
+
+	srand( time(NULL));
+	num = rand() % 9000 + 1000; // formula is rand() % (b - a + 1) + a
+	
+//	cout << num << endl;
+
+	cout << "Computer already recorded a number " << endl;
+
 	CheckNumber(num);
+
 	return 0;
 }
