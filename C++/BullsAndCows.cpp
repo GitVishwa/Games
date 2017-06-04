@@ -25,6 +25,7 @@ using namespace std;
 
 int num,bulls,cows;
 int arr[MAX];
+int correct_digits;
 
 //To print the total number of cows and bulls based on guessed number  
 void BullsAndCows(int b,int c){
@@ -35,7 +36,7 @@ void BullsAndCows(int b,int c){
 }
 
 //check whether the guessed number if correct or not
-void CheckNumber(int number) {
+void CheckNumber(int number,int cor_digits) {
 	int guessed_number = 0,temp1 = 0,temp2 = number,length = 0, count =0;
 	int j_index = 0;
 	char ch;
@@ -54,7 +55,7 @@ void CheckNumber(int number) {
 		cin >> guessed_number;
 		if(number == guessed_number) {
 			cout << "You guessed it right "<< endl;
-			BullsAndCows(4,0);
+			BullsAndCows(cor_digits,0);
 			cout << "You won " << endl;
 			cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 			cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
@@ -99,22 +100,47 @@ void CheckNumber(int number) {
 					goto l1;			
 				}
 			}
+			cout << endl;
+			cout << endl;
 		}
 }
 
 int main(void) {
 	
-	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
-	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
-
-	srand( time(NULL));
-	num = rand() % 9000 + 1000; // formula is rand() % (b - a + 1) + a
+	int choice = 0;
 	
-//	cout << num << endl;
+	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
+	cout << "++++++++++++++++++++++++WELCOME TO GAME+++++++++++++++++++++++++++++++++++++++" << endl;
+
+	cout << endl;
+	cout << endl;	
+	cout << "Want to play " << endl;
+	cout << "1) EASY " <<endl;
+	cout << "2) MEDIUM " <<endl;
+	cout << "3) HARD " <<endl;
+	cout << "ENTER YOUR CHOICE " <<endl;
+	cin >> choice;
+	srand( time(NULL));
+	
+
+	switch(choice) {
+		case 1 : num = rand() % 900 + 100;
+			 correct_digits = 3;
+		         break;
+		case 2 : num = rand() % 9000 + 1000;
+			 correct_digits = 4;
+			break;
+		case 3 : num = rand() % 90000 + 10000;
+			 correct_digits = 5;
+			break; 
+	}
+	//num = rand() % 9000 + 1000; // formula is rand() % (b - a + 1) + a
+	
+	cout << num << endl;
 
 	cout << "Computer already recorded a number " << endl;
 
-	CheckNumber(num);
+	CheckNumber(num,correct_digits);
 
 	return 0;
 }
