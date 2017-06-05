@@ -115,9 +115,9 @@ int main(void) {
 	cout << endl;
 	cout << endl;	
 	cout << "Want to play " << endl;
-	cout << "1) EASY " <<endl;
-	cout << "2) MEDIUM " <<endl;
-	cout << "3) HARD " <<endl;
+	cout << "1) EASY (3 X 3) " <<endl;
+	cout << "2) MEDIUM (4 X 4)" <<endl;
+	cout << "3) HARD (5 X 5)" <<endl;
 	cout << "ENTER YOUR CHOICE " <<endl;
 	cin >> choice;
 	srand( time(NULL));
